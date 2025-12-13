@@ -1,72 +1,118 @@
 # QIE DeFi Staking Platform
+A fully on-chain staking protocol built for the QIE Blockchain Hackathon 2025.
 
-A decentralized staking platform built on QIE Blockchain for the **QIE Blockchain Hackathon 2025**.
+## Overview
+This project enables users to:
+- Stake any ERC-20 compatible token
+- Earn time-based APY rewards
+- Claim on-chain minted reward tokens
+- Unstake after a secure lock period
+- Integrate optional oracle-driven APY
 
-## Features
+All contracts follow EVM standards and compile on QIE Testnet.
 
-- **Token Staking**: Lock tokens to earn rewards
-- **Real-time APY**: Dynamic APY calculated using QIE Oracles
-- **Automated Rewards**: Smart contract-based reward distribution
-- **Gas Efficient**: Optimized for QIE's high throughput (25,000+ TPS)
-- **Web3 Ready**: Full Web3.js integration
+------------------------------------------------------------
 
-## Tech Stack
+## Smart Contracts
 
-- **Smart Contracts**: Solidity
-- **Chain**: QIE Blockchain (Testnet)
-- **Frontend**: React + Web3.js
-- **Oracles**: QIE Live Oracles (7 feeds)
-- **Token Creator**: QIEDEX
+### RewardToken.sol
+- ERC20 reward token
+- Hard-capped supply
+- Staking contract has mint permission
+- Burn function supports deflation
 
-## Evaluation Criteria Met
+### StakingPlatform.sol
+- Stake/unstake flow
+- Dynamic APY (oracle optional)
+- Time-based reward accumulation
+- Lock mechanism for security
+- Fully tested with Hardhat
 
-- ✅ Innovation (25%): Unique APY calculation using real-world data
-- ✅ Impact (25%): Real DeFi use case with scalability
-- ✅ Technical Execution (25%): High-quality code, QIE features
-- ✅ Presentation (15%): Clean UI/UX and documentation
-- ✅ Bonus (10%): QIEDEX integration + Oracle usage
+------------------------------------------------------------
 
-## Getting Started
+## Folder Structure
 
-### Prerequisites
-- Node.js 16+
-- MetaMask with QIE Testnet configured
-- Test tokens from QIE faucet
+contracts/                    Solidity contracts
+scripts/                      Deployment scripts
+frontend/                     Minimal web UI
+test/                         Hardhat tests
+deployment-addresses.json     Written after deployment
 
-### Installation
+------------------------------------------------------------
 
-```bash
-git clone https://github.com/RaviTejaMedarametla/qie-defi-staking.git
-cd qie-defi-staking
-npm install
-```
+## Deployment
 
-### Deployment
+Update your .env:
 
-Smart contracts deploy to QIE Testnet.
+QIE_TESTNET_RPC=
+PRIVATE_KEY=
 
-## Project Structure
+Deploy:
 
-```
-├── contracts/          # Solidity smart contracts
-│   ├── Staking.sol    # Main staking contract
-│   └── RewardToken.sol # ERC20 reward token
-├── frontend/          # React application
-├── tests/             # Contract tests
-└── docs/              # Documentation
-```
+npx hardhat run scripts/deploy.js --network qie-testnet
 
-## References
+Artifacts will be written to:
 
-- [QIE Developer Docs](https://docs.qie.digital/developer-docs)
-- [QIEDEX](https://dex.qie.digital)
-- [QIE Testnet](https://www.testnet.qie.digital)
+deployment-addresses.json
 
-## License
+------------------------------------------------------------
 
-MIT License - See LICENSE file
+## Testing
 
-## Built for
+npx hardhat test
 
-**QIE Blockchain Hackathon 2025**
-December 14, 2025 deadline
+Covers:
+- Stake
+- Reward accrual
+- Claim
+- Unstake after lock
+
+------------------------------------------------------------
+
+## Frontend (Vanilla JS)
+
+cd frontend
+python -m http.server 8080
+
+Then open in browser and connect MetaMask.
+
+------------------------------------------------------------
+
+## Features for Hackathon Scoring
+
+Innovation (25%)
+- Modular APY engine
+- Oracle integration (optional)
+- Deflationary reward mechanics
+
+Impact (25%)
+- Usable by DEXes, NFT projects, GameFi, communities
+- Low gas
+- Fully EVM compatible
+
+Technical Execution (25%)
+- Hardhat toolbox v2.x
+- ethers v5
+- Complete test suite
+- Clean architecture
+
+Presentation (15%)
+- Clear UX
+- Simple frontend
+- Easy to demo
+
+Bonus (10%)
+- Oracle-ready
+- Extensible design
+
+------------------------------------------------------------
+
+## Future Extensions
+- Validator staking
+- Lending markets
+- Multi-token staking
+- Oracle-based risk scoring
+
+------------------------------------------------------------
+
+© 2025 — QIE Hackathon Team Submission
