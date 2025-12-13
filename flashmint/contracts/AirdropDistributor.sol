@@ -6,38 +6,23 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 /**
  * @title AirdropDistributor
- * @notice Simple batch ERC20 airdrop for hackathon use.
- *
- * The contract does NOT hold funds. Owner must approve spending
- * or transfer tokens before calling distribute().
+ * @dev Batch airdrop engine for FlashMintToken.
  */
 contract AirdropDistributor is Ownable {
     IERC20 public token;
 
-    event Distributed(address indexed to, uint256 amount);
-
-    constructor(address tokenAddress) {
-        require(tokenAddress != address(0), "Invalid token");
-        token = IERC20(tokenAddress);
+    constructor(address _token) {
+        token = IERC20(_token);
     }
 
-    /**
-     * @notice Batch distribute tokens to a list of recipients.
-     * @dev Caller must have approved the distributor to spend tokens.
-     */
-    function distribute(address[] calldata recipients, uint256[] calldata amounts)
+    function airdrop(address[] calldata recipients, uint256[] calldata amounts)
         external
         onlyOwner
     {
-        require(recipients.length == amounts.length, "Array mismatch");
+        require(recipients.length == amounts.length, "Length mismatch");
 
         for (uint256 i = 0; i < recipients.length; i++) {
-            require(
-                token.transferFrom(msg.sender, recipients[i], amounts[i]),
-                "Transfer failed"
-            );
-
-            emit Distributed(recipients[i], amounts[i]);
+            token.transfer(recipients[i], amounts[i]);
         }
     }
 }
