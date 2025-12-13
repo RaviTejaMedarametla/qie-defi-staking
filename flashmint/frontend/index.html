@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>FlashMint — Token Creator & Airdrop</title>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+</head>
+<body>
+
+  <h1>FlashMint — Token Creator & Airdrop</h1>
+
+  <button id="connectBtn">Connect Wallet</button>
+  <p id="account"></p>
+
+  <hr>
+
+  <h2>Create Token</h2>
+  <input id="name" placeholder="Name" />
+  <input id="symbol" placeholder="Symbol" />
+  <input id="initial" placeholder="Initial Supply (e.g. 1000)" />
+  <input id="max" placeholder="Max Supply (0 = unlimited)" />
+  <button id="createBtn">Deploy Token</button>
+
+  <p id="tokenAddress"></p>
+
+  <hr>
+
+  <h2>Airdrop</h2>
+  <textarea id="airdropData" rows="5" cols="50" placeholder="address,amount&#10;address,amount"></textarea><br>
+  <button id="airdropBtn">Run Airdrop</button>
+
+  <script src="config.js"></script>
+  <script src="components.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
