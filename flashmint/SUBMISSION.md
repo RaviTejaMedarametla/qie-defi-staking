@@ -1,59 +1,86 @@
-# QIE Hackathon Submission — FlashMint
+# QIE Hackathon Submission — FlashMint (Token Creator + Airdrop Engine)
+
+## Team
+Ravi Teja Medarametla
+
+---
 
 ## Project Summary
-FlashMint is a token creation and airdrop tool for the QIE blockchain ecosystem.  
-Users can create ERC20 tokens with optional max supply and perform batch airdrops on-chain.
+FlashMint is a rapid token deployment and airdrop system designed for QIE’s fast, low-fee blockchain.  
+Creators can deploy ERC-20 tokens instantly and distribute them to large groups with minimal gas usage.
 
-This project is optimized for rapid onboarding and community activation.
+---
 
-------------------------------------------------------------
+## Deployed Contracts (QIE Testnet)
 
-## Key Features
-- ERC20 token deployment
-- Optional max supply cap
-- Owner-based mint control
-- User burn functionality
-- Batch airdrop distribution
-- Simple vanilla-js frontend
+FlashMintToken:       0xEa0A25960f24033e769Def9257580D9711b6d5cA
+AirdropDistributor:   0x535C934110682a179738339f1b691380C151b0B3
+Explorer:             https://testnet.qie.digital/
 
-------------------------------------------------------------
+---
 
-## Smart Contract Files
-- flashmint/contracts/FlashMintToken.sol
-- flashmint/contracts/AirdropDistributor.sol
+## Smart Contracts Included
+contracts/FlashMintToken.sol  
+contracts/AirdropDistributor.sol  
 
-------------------------------------------------------------
-
-## Testing
-The Hardhat test suite validates:
-- Minting logic
-- Max supply enforcement
-- Burning tokens
-- Airdrop distribution
-- Reverting on mismatched arrays
-
-------------------------------------------------------------
+---
 
 ## Demo Video Link
-(To be added)
+(To be added after recording)
 
-------------------------------------------------------------
+Suggested flow:
+1. Overview of FlashMint  
+2. Show deployed contracts in explorer  
+3. Connect wallet to frontend  
+4. Mint tokens  
+5. Run a batch airdrop  
+6. Verify balances and events  
 
-## Deployed Contract Addresses
-(To be added)
+---
 
-------------------------------------------------------------
+## Testing
+Hardhat tests confirm:
+- Minting permissions  
+- Batch airdrop correctness  
+- Event emissions  
+- Balance updates  
+
+Run tests:
+npx hardhat test
+
+---
+
+## Impact & Use Cases
+- Community token launches  
+- Reward systems  
+- Gaming assets  
+- Influencer campaigns  
+- NFT/Guild utility drops  
+
+---
 
 ## Tech Stack
-- Solidity
-- Hardhat
-- ethers.js
-- Vanilla JavaScript frontend
+Solidity  
+Hardhat  
+ethers.js  
+Vanilla JS frontend  
 
-------------------------------------------------------------
+---
 
-## Why This Should Win
-- Instant token creation lowers barrier to entry for QIE ecosystem growth
-- Airdrop tools are essential for community building and marketing campaigns
-- Reliable codebase with complete tests
-- Extremely easy for judges to run and verify
+## Why This Project Should Win
+- High-utility real-world use case  
+- Fully deployable on QIE today  
+- Minimalistic, reliable architecture  
+- Easy for judges to run and verify  
+- Aligns with QIE hackathon themes and T&C  
+
+---
+
+## Future Extensions
+- Merkle tree airdrops  
+- Liquidity bootstrap modules  
+- Token launchpad automation  
+
+---
+
+Submission Complete.

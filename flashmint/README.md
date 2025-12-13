@@ -1,131 +1,133 @@
-# FlashMint — Token Creator & Airdrop System
-A simple and powerful ERC20 token generator plus on-chain airdrop distribution tool.  
-Built for the QIE Blockchain Hackathon 2025.
+# FlashMint — Instant Token Creator + Airdrop Engine
+QIE Blockchain Hackathon 2025 — Project 2
 
-This project provides:
-1. An ERC20 token contract with optional max supply  
-2. A batch airdrop distributor  
-3. A minimal, judge-friendly frontend  
-4. Full Hardhat test suite  
+FlashMint allows creators and developers to:
+- Deploy a mintable ERC-20 token instantly
+- Airdrop tokens to multiple addresses in a single transaction
+- Integrate easily with any QIE-based dApp or community project
 
-------------------------------------------------------------
-
-## Overview
-FlashMint enables users to instantly:
-- Create a new ERC20 token
-- Define supply and optional max cap
-- Burn tokens
-- Run on-chain airdrops to multiple recipients
-
-All components follow standard EVM-compatible patterns.
-
-------------------------------------------------------------
+---
 
 ## Smart Contracts
 
 ### FlashMintToken.sol
-- ERC20 token implementation  
-- Optional max supply cap  
-- Mint only by owner  
-- Burn function for any user  
-
-Constructor:
-name, symbol, initialSupply, maxSupply  
-If maxSupply = 0, minting is unlimited.
+- ERC-20 token built with OpenZeppelin
+- Minting restricted to owner or distributor
+- Fully compatible with QIE Testnet
 
 ### AirdropDistributor.sol
-- Batch distribution contract  
-- Owner-only distribution  
-- Uses transferFrom  
-- Requires approval from token owner  
+- Batch airdrop engine
+- Emits transfer events per recipient
+- Gas-efficient and modular
 
-------------------------------------------------------------
+---
+
+## Deployed on QIE Testnet
+
+FlashMintToken:       0xEa0A25960f24033e769Def9257580D9711b6d5cA
+AirdropDistributor:   0x535C934110682a179738339f1b691380C151b0B3
+Explorer:             https://testnet.qie.digital/
+
+Deployment file: flashmint/deployment.json
+
+---
 
 ## Folder Structure
 
 flashmint/
-  contracts/                 Solidity source
-  scripts/                   Deployment scripts
-  test/                      Hardhat tests
-  frontend/                  Minimal web UI
-  deployment.json            Written after deployment
+ ├── contracts/
+ │    ├── FlashMintToken.sol
+ │    └── AirdropDistributor.sol
+ ├── scripts/
+ │    └── deploy.js
+ ├── test/
+ │    ├── FlashMintToken.test.js
+ │    └── AirdropDistributor.test.js
+ ├── frontend/
+ │    ├── index.html
+ │    ├── app.js
+ │    ├── components.js
+ │    └── config.js
+ ├── README.md
+ └── SUBMISSION.md
 
-------------------------------------------------------------
+---
+
+## Hardhat Usage
+
+### Install dependencies
+npm install
+
+### Compile
+npx hardhat compile
+
+### Test
+npx hardhat test
+
+Tests cover:
+- Token permissions
+- Airdrop distribution
+- Event emission validation
+
+---
 
 ## Deployment
 
-Set environment variables:
+Ensure .env contains:
 
-QIE_TESTNET_RPC=
-PRIVATE_KEY=
+QIE_TESTNET_RPC=https://rpc1testnet.qie.digital/
+PRIVATE_KEY=0x<your_private_key>
 
-Deploy contracts:
+Deploy:
 
 npx hardhat run flashmint/scripts/deploy.js --network qie-testnet
 
-Deployment results saved to:
+Addresses are written to flashmint/deployment.json.
 
-flashmint/deployment.json
+---
 
-------------------------------------------------------------
+## Frontend
 
-## Testing
-
-Run the test suite:
-
-npx hardhat test
-
-Tests include:
-- Token minting  
-- Max supply enforcement  
-- Burnable behavior  
-- Airdrop distribution  
-- Array mismatch and reverted cases  
-
-------------------------------------------------------------
-
-## Frontend Usage
-
-Start a lightweight local server:
+Start local static server:
 
 cd flashmint/frontend
 python -m http.server 8080
 
-Open browser at:
-
+Open:
 http://localhost:8080
 
-Available actions:
-- Deploy Token (name, symbol, initial supply, max supply)
-- Airdrop (paste "address,amount" lines)
-- MetaMask wallet connection
+Frontend supports:
+- Connect MetaMask
+- Mint tokens
+- Execute batch airdrops
 
-------------------------------------------------------------
+---
 
-## Hackathon Scoring Highlights
+## Hackathon Scoring Alignment
 
-Innovation (25%)
-- One-click ERC20 creator
-- Airdrop mechanism that works for communities, DAOs, NFT projects
+Innovation:
+- Instant token creation + bulk airdrops
 
-Impact (25%)
-- Instant onboarding tool for QIE ecosystem
-- Enables token launch campaigns, community rewards, and marketing drops
+Impact:
+- Perfect for communities, DAOs, NFTs, GameFi
 
-Technical Execution (25%)
-- Clean contract architecture
-- Fully tested with Hardhat
-- No deprecated libraries
-- Ethers v5 compatibility
+Technical Execution:
+- Clean, minimal contracts
+- Full test suite
 
-Presentation (15%)
-- Extremely simple UI
-- Clear interaction flow
-- Easy to demo to judges
+Presentation:
+- Simple UI, easy to demo
 
-Bonus (10%)
-- Integrates seamlessly with QIEDEX token creation workflows
+Bonus:
+- Fully QIE-compatible, works with QIEDEX
 
-------------------------------------------------------------
+---
 
-© 2025 — FlashMint Hackathon Submission
+## Future Extensions
+- Merkle airdrops
+- Oracle-triggered distributions
+- Token launchpad workflows
+
+---
+
+© 2025 FlashMint — QIE Hackathon Project
