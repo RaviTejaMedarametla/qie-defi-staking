@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QIE AI Oracle</title>
+</head>
+<body>
+  <h1>AI Oracle Dashboard</h1>
+
+  <button onclick="connectWallet()">Connect Wallet</button>
+
+  <h3>Submit AI Prediction</h3>
+  <input id="inputHash" placeholder="Input Hash"><br><br>
+  <input id="outputHash" placeholder="Output Hash"><br><br>
+  <input id="model" placeholder="Model Name"><br><br>
+  <input id="confidence" placeholder="Confidence (0-100)"><br><br>
+  <button onclick="submitPrediction()">Submit</button>
+
+  <h3>Fetch Prediction</h3>
+  <input id="fetchId" placeholder="ID"><br><br>
+  <button onclick="fetchPrediction()">Fetch</button>
+
+  <pre id="result"></pre>
+
+  <script src="app.js"></script>
+</body>
+</html>
