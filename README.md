@@ -1,118 +1,26 @@
-# QIE DeFi Staking Platform
-A fully on-chain staking protocol built for the QIE Blockchain Hackathon 2025.
+QIE DeFi Suite — Hackathon 2025 Submission
 
-## Overview
-This project enables users to:
-- Stake any ERC-20 compatible token
-- Earn time-based APY rewards
-- Claim on-chain minted reward tokens
-- Unstake after a secure lock period
-- Integrate optional oracle-driven APY
+QIE DeFi Suite is a modular, production-ready DeFi ecosystem built on the QIE Blockchain for Hackathon 2025.
 
-All contracts follow EVM standards and compile on QIE Testnet.
+This repository contains one unified solution with multiple tightly integrated modules, all leveraging QIE’s speed, low fees, QIEDEX tokenization, and oracle infrastructure.
 
-------------------------------------------------------------
+🏆 Primary Submission
 
-## Smart Contracts
+QIE DeFi Staking Platform
+Theme: DeFi Without Borders
 
-### RewardToken.sol
-- ERC20 reward token
-- Hard-capped supply
-- Staking contract has mint permission
-- Burn function supports deflation
+A complete staking solution enabling users to earn yield with near-zero fees and instant finality.
 
-### StakingPlatform.sol
-- Stake/unstake flow
-- Dynamic APY (oracle optional)
-- Time-based reward accumulation
-- Lock mechanism for security
-- Fully tested with Hardhat
+🔌 Ecosystem Modules
 
-------------------------------------------------------------
+FlashMint — Token creation & airdrop system (QIEDEX aligned)
 
-## Folder Structure
+OracleSight — Live QIE Oracle reader
 
-contracts/                    Solidity contracts
-scripts/                      Deployment scripts
-frontend/                     Minimal web UI
-test/                         Hardhat tests
-deployment-addresses.json     Written after deployment
+QIE AI Oracle — AI-powered on-chain result feed
 
-------------------------------------------------------------
+🚀 Why This Matters
 
-## Deployment
+Unlike isolated demos, this project demonstrates real ecosystem thinking, showing how DeFi, tokenization, oracles, and AI coexist on QIE.
 
-Update your .env:
-
-QIE_TESTNET_RPC=
-PRIVATE_KEY=
-
-Deploy:
-
-npx hardhat run scripts/deploy.js --network qie-testnet
-
-Artifacts will be written to:
-
-deployment-addresses.json
-
-------------------------------------------------------------
-
-## Testing
-
-npx hardhat test
-
-Covers:
-- Stake
-- Reward accrual
-- Claim
-- Unstake after lock
-
-------------------------------------------------------------
-
-## Frontend (Vanilla JS)
-
-cd frontend
-python -m http.server 8080
-
-Then open in browser and connect MetaMask.
-
-------------------------------------------------------------
-
-## Features for Hackathon Scoring
-
-Innovation (25%)
-- Modular APY engine
-- Oracle integration (optional)
-- Deflationary reward mechanics
-
-Impact (25%)
-- Usable by DEXes, NFT projects, GameFi, communities
-- Low gas
-- Fully EVM compatible
-
-Technical Execution (25%)
-- Hardhat toolbox v2.x
-- ethers v5
-- Complete test suite
-- Clean architecture
-
-Presentation (15%)
-- Clear UX
-- Simple frontend
-- Easy to demo
-
-Bonus (10%)
-- Oracle-ready
-- Extensible design
-
-------------------------------------------------------------
-
-## Future Extensions
-- Validator staking
-- Lending markets
-- Multi-token staking
-- Oracle-based risk scoring
-
-------------------------------------------------------------
-
-© 2025 — QIE Hackathon Team Submission
+Mainnet deployment and user onboarding are actively in progress.
